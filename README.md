@@ -9,37 +9,39 @@ defmodule DoReMi do
   import MusicMaker.DSL
 
   sequence :intro do
-    note :c4, duration: 0.5
-    note :d4, duration: 0.5
-    note :e4, duration: 0.5
-    note :f4, duration: 0.5
+    note :c, 4, duration: 0.5
+    note :d, 4, duration: 0.5
+    note :e, 4, duration: 0.5
+    note :f, 4, duration: 0.5
     # This is equivalent to no note...
-    note :rest, duration: 0.5
-    note :g4, duration: 0.5
-    note :a4, duration: 0.5
-    note :b4, duration: 0.5
-    note :c5, duration: 0.5
+    note :rest, 0, duration: 0.5
+    note :g, 4, duration: 0.5
+    note :a, 4, duration: 0.5
+    note :b, 4, duration: 0.5
+    note :c, 5, duration: 0.5
   end
 
   sequence :break do
     # Default duration is 1.0
-    note :rest
+    note :rest, 0
   end
 
   sequence :outro do
-    note :c4, modifier: :sharp, duration: 0.5
-    note :d4, modifier: :sharp, duration: 0.5
-    note :e4, modifier: :sharp, duration: 0.5
-    note :f4, modifier: :sharp, duration: 0.5
+    note :c, 4, modifier: :sharp, duration: 0.5
+    note :d, 4, modifier: :sharp, duration: 0.5
+    note :e, 4, duration: 0.5
+    note :f, 4, modifier: :sharp, duration: 0.5
     # This is equivalent to no note...
-    note :rest, duration: 0.5
-    note :g4, modifier: :sharp, duration: 0.5
-    note :a4, modifier: :sharp, duration: 0.5
-    note :b4, modifier: :sharp, duration: 0.5
-    note :c5, modifier: :sharp, duration: 0.5
+    note :rest, 0, duration: 0.5
+    note :g, 4, modifier: :sharp, duration: 0.5
+    note :a, 4, modifier: :sharp, duration: 0.5
+    note :b, 4, modifier: :sharp, duration: 0.5
+    note :c, 5, modifier: :sharp, duration: 0.5
   end
 
-  play [intro, outro]
+  def play do
+    play [intro, break, outro]
+  end
 end
 ```
 
@@ -58,10 +60,12 @@ end
 
 ## Tasks
 
-- [ ] New mix project (umbrella?)
+- [ ] New mix project
 - [ ] Write a wrapper around the CLI
+- [ ] Write an abstraction around notes
 - [ ] Write a way to interact with the CLI in terms of humanized notes
     - [ ] Write a note to frequency converter
+- [ ] Write a DSL to compose music
 
 ## Test Play
 
@@ -73,133 +77,135 @@ defmodule SomethingReallyCool do
   import MusicMaker.DSL
 
   sequence :intro do
-    note :e4, duration: 0.1
-    note :e4, duration: 0.1
-    note :rest, duration: 0.1
-    note :e4, duration: 0.1, volume: 75
-    note :rest, duration: 0.1
-    note :c4, duration: 0.1
-    note :e4, duration: 0.1
-    note :rest, duration: 0.1
-    note :g4, duration: 0.2
-    note :rest, duration: 0.2
-    note :g3, duration: 0.2
+    note :e, 4, duration: 0.1
+    note :e, 4, duration: 0.1
+    note :rest, 0, duration: 0.1
+    note :e, 4, duration: 0.1, volume: 75
+    note :rest, 0, duration: 0.1
+    note :c, 4, duration: 0.1
+    note :e, 4, duration: 0.1
+    note :rest, 0, duration: 0.1
+    note :g, 4, duration: 0.2
+    note :rest, 0, duration: 0.2
+    note :g, 3, duration: 0.2
   end
 
   sequence :break8 do
-    note :rest, duration: 0.8
+    note :rest, 0, duration: 0.8
   end
 
   sequence :break4 do
-    note :rest, duration: 0.4
+    note :rest, 0, duration: 0.4
   end
 
   sequence :second do
-    note :c4, duration: 0.1
-    note :rest, duration: 0.4
-    note :g3, duration: 0.1
-    note :rest, duration: 0.4
-    note :e3, duration: 0.1
-    note :rest, duration: 0.4
-    note :a3, duration: 0.1
-    note :rest, duration: 0.2
-    note :b3, duration: 0.1
-    note :rest, duration: 0.1
-    note :a3, modifier: :sharp, duration: 0.1
-    note :a3, duration: 0.1
-    note :rest, duration: 0.2
-    note :g3, duration: 0.1
-    note :e4, duration: 0.1
-    note :rest, duration: 0.1
-    note :g4, duration: 0.1
-    note :a4, duration: 0.1
-    note :rest, duration: 0.1
-    note :f4, duration: 0.1
-    note :g4, duration: 0.1
-    note :rest, duration: 0.1
-    note :e4, duration: 0.1
-    note :c4, duration: 0.1
-    note :rest, duration: 0.1
-    note :d4, duration: 0.1
-    note :b3, duration: 0.1
+    note :c, 4, duration: 0.1
+    note :rest, 0, duration: 0.4
+    note :g, 3, duration: 0.1
+    note :rest, 0, duration: 0.4
+    note :e, 3, duration: 0.1
+    note :rest, 0, duration: 0.4
+    note :a, 3, duration: 0.1
+    note :rest, 0, duration: 0.2
+    note :b, 3, duration: 0.1
+    note :rest, 0, duration: 0.1
+    note :a, 3, modifier: :sharp, duration: 0.1
+    note :a, 3, duration: 0.1
+    note :rest, 0, duration: 0.2
+    note :g, 3, duration: 0.1
+    note :e, 4, duration: 0.1
+    note :rest, 0, duration: 0.1
+    note :g, 4, duration: 0.1
+    note :a, 4, duration: 0.1
+    note :rest, 0, duration: 0.1
+    note :f, 4, duration: 0.1
+    note :g, 4, duration: 0.1
+    note :rest, 0, duration: 0.1
+    note :e, 4, duration: 0.1
+    note :c, 4, duration: 0.1
+    note :rest, 0, duration: 0.1
+    note :d, 4, duration: 0.1
+    note :b, 3, duration: 0.1
   end
 
   sequence :third do
-    note :g4, duration: 0.1
-    note :f4, modifier: :sharp, duration: 0.1
-    note :f4, duration: 0.1
-    note :d4, modifier: :sharp, duration: 0.1
-    note :e4, duration: 0.2
-    note :rest, duration: 0.2
-    note :a3, duration: 0.1
-    note :a3, duration: 0.1
-    note :c4, duration: 0.1
-    note :rest, duration: 0.1
-    note :a3, duration: 0.1
-    note :c4, duration: 0.1
-    note :d4, duration: 0.1
+    note :g, 4, duration: 0.1
+    note :f, 4, modifier: :sharp, duration: 0.1
+    note :f, 4, duration: 0.1
+    note :d, 4, modifier: :sharp, duration: 0.1
+    note :e, 4, duration: 0.2
+    note :rest, 0, duration: 0.2
+    note :a, 3, duration: 0.1
+    note :a, 3, duration: 0.1
+    note :c, 4, duration: 0.1
+    note :rest, 0, duration: 0.1
+    note :a, 3, duration: 0.1
+    note :c, 4, duration: 0.1
+    note :d, 4, duration: 0.1
   end
 
   sequence :fourth do
-    note :g4, duration: 0.1
-    note :f4, modifier: :sharp, duration: 0.1
-    note :f4, duration: 0.1
-    note :d4, modifier: :sharp, duration: 0.1
-    note :e4, duration: 0.2
-    note :rest, duration: 0.2
-    note :c5, duration: 0.1
-    note :c5, duration: 0.1
-    note :c5, duration: 0.1
+    note :g, 4, duration: 0.1
+    note :f, 4, modifier: :sharp, duration: 0.1
+    note :f, 4, duration: 0.1
+    note :d, 4, modifier: :sharp, duration: 0.1
+    note :e, 4, duration: 0.2
+    note :rest, 0, duration: 0.2
+    note :c, 5, duration: 0.1
+    note :c, 5, duration: 0.1
+    note :c, 5, duration: 0.1
   end
 
   sequence :fifth do
-    note :d4, modifier: :sharp, duration: 0.2
-    note :rest, duration: 0.1
-    note :d4, duration: 0.2
-    note :rest, duration: 0.1
-    note :c4, duration: 0.2
+    note :d, 4, modifier: :sharp, duration: 0.2
+    note :rest, 0, duration: 0.1
+    note :d, 4, duration: 0.2
+    note :rest, 0, duration: 0.1
+    note :c, 4, duration: 0.2
   end
 
   sequence :sixth do
-    note :c4, duration: 0.1
-    note :c4, duration: 0.1
-    note :rest, duration: 0.1
-    note :c4, duration: 0.1
-    note :rest, duration: 0.4
-    note :d4, duration: 0.1
+    note :c, 4, duration: 0.1
+    note :c, 4, duration: 0.1
+    note :rest, 0, duration: 0.1
+    note :c, 4, duration: 0.1
+    note :rest, 0, duration: 0.4
+    note :d, 4, duration: 0.1
   end
 
   sequence :seventh do
-    note :e4, duration: 0.1
-    note :c4, duration: 0.1
-    note :rest, duration: 0.2
-    note :a3, duration: 0.1
-    note :g3, duration: 0.1
+    note :e, 4, duration: 0.1
+    note :c, 4, duration: 0.1
+    note :rest, 0, duration: 0.2
+    note :a, 3, duration: 0.1
+    note :g, 3, duration: 0.1
   end
 
-  play [intro,
-        break8,
-        second,
-        break4,
-        second,
-        break8,
-        third,
-        break4,
-        fourth,
-        break8,
-        third,
-        break4,
-        fifth,
-        break8,
-        sixth,
-        seventh,
-        break4,
-        sixth,
-        break8,
-        break4,
-        sixth,
-        seventh,
-        break4,
-        intro]
+  def play do
+    play [intro,
+          break8,
+          second,
+          break4,
+          second,
+          break8,
+          third,
+          break4,
+          fourth,
+          break8,
+          third,
+          break4,
+          fifth,
+          break8,
+          sixth,
+          seventh,
+          break4,
+          sixth,
+          break8,
+          break4,
+          sixth,
+          seventh,
+          break4,
+          intro]
+  end
 end
 ```
