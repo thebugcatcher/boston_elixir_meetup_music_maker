@@ -4,6 +4,28 @@ defmodule MixALot.NotePlayer do
   """
 
   @doc """
+  Plays a note
+
+  ## Examples
+
+      iex> note = %MixALot.Note{
+      ...>   type: :g,
+      ...>   volume: 50,
+      ...>   duration: 1.0,
+      ...>   octet: 8
+      ...> }
+      iex> MixALot.NotePlayer.play_note(note)
+      :ok
+  """
+  @spec play_note(MixALot.Note.t()) :: :ok | :error
+  def play_note(%MixALot.Note{duration: duration, volume: volume} = note) do
+    note
+    |> MixALot.Note.to_frequency()
+    |> play(duration, volume)
+  end
+
+
+  @doc """
   Takes a frequency, duration and volume and plays a note
 
   ## Examples
