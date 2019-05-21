@@ -27,7 +27,6 @@ Music Maker App using ALSA's APlay
 - Command:
     * `echo 'foo' |  awk '{ for (i = 0; i < 0.75; i+= 0.00003125) printf("%08X\n", 50*sin(440*3.14*exp((a[$1 % 8]/12)*log(2))*i)) }' | xxd -r -p | aplay -c 2 -f S32_LE -r 28000`
     * `440` is the base frequency
-    * `3.14` -> pi
     * `0.75` is the duration
     * `50` is the volume
 
