@@ -1,5 +1,7 @@
 ## Elixir Meetup 05/21/2019, Mob Programming: Music Maker DSL
 
+__NOTE: To run the slides, install `patat` and run `$ patat slides.md`__
+
 In this session we will all group together to write an elixir app that provides
 a music maker DSL using which one could compose music:
 
