@@ -68,6 +68,7 @@ end
 - [ ] Write a way to interact with the CLI in terms of humanized notes
     - [ ] Write a note to frequency converter
 - [ ] Write a DSL to compose music
+- [ ] Maybe Publish to Hex.Pm!
 
 ## Test Play
 
