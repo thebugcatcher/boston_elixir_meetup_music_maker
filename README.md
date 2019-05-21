@@ -62,8 +62,8 @@ end
 ## Tasks
 
 - [X] New mix project
-- [ ] Write a wrapper around the CLI
-- [ ] Write an abstraction around notes
+- [X] Write a wrapper around the CLI
+- [X] Write an abstraction around notes
 - [ ] Write a way to interact with the CLI in terms of humanized notes
     - [ ] Write a note to frequency converter
 - [ ] Write a DSL to compose music
