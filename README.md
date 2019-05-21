@@ -61,7 +61,7 @@ end
 
 ## Tasks
 
-- [ ] New mix project
+- [X] New mix project
 - [ ] Write a wrapper around the CLI
 - [ ] Write an abstraction around notes
 - [ ] Write a way to interact with the CLI in terms of humanized notes
