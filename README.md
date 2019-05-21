@@ -76,7 +76,7 @@ defmodule SomethingReallyCool do
   @moduledoc """
   This is an awesome music track!
   """
-  import MusicMaker.DSL
+  import MixALot.DSL
 
   sequence :intro do
     note :e, 4, duration: 0.1
